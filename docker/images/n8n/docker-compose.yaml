@@ -1,0 +1,20 @@
+name: n8n
+services:
+    n8n:
+        volumes:
+            - ${N8N_DIR}/.docker/n8n/pki:/opt/custom-certificates
+        container_name: n8n
+        ports:
+            - 5678:5678
+        image: docker.n8n.io/n8nio/n8n
+        env_file:
+            - .env
+        environment:
+            - HTTP_PROXY=${HTTP_PROXY}
+            - HTTPS_PROXY=${HTTPS_PROXY}
+            - N8N_HOST=${N8N_HOST}
+            - N8N_PORT=${N8N_PORT}
+            - N8N_PROTOCOL=${N8N_PROTOCOL}
+            - WEBHOOK_URL=${WEBHOOK_URL}
+        restart: unless-stopped
+
