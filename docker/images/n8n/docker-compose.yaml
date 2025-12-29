@@ -8,13 +8,13 @@ services:
             - 5678:5678
         image: docker.n8n.io/n8nio/n8n
         env_file:
-            - .env
-        environment:
-            - HTTP_PROXY=${HTTP_PROXY}
-            - HTTPS_PROXY=${HTTPS_PROXY}
-            - N8N_HOST=${N8N_HOST}
-            - N8N_PORT=${N8N_PORT}
-            - N8N_PROTOCOL=${N8N_PROTOCOL}
-            - WEBHOOK_URL=${WEBHOOK_URL}
+            - .env_aliyun
+        # environment:
+        #     - HTTP_PROXY=${HTTP_PROXY}
+        #     - HTTPS_PROXY=${HTTPS_PROXY}
+        #     - N8N_HOST=${N8N_HOST}
+        #     - N8N_PORT=${N8N_PORT}
+        #     - N8N_PROTOCOL=${N8N_PROTOCOL}
+        #     - WEBHOOK_URL=${WEBHOOK_URL}
         restart: unless-stopped
 
