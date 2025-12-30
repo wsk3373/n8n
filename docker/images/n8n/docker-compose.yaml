@@ -1,8 +1,10 @@
 name: n8n
 services:
     n8n:
+        user: "root"
         volumes:
-            - ${N8N_DIR}/.docker/n8n/pki:/opt/custom-certificates
+            - ${HOME}/.n8n/custom-certificate:/opt/custom-certificates
+            - ${HOME}/.n8n/data:/home/node/.n8n  # 添加数据持久化
         container_name: n8n
         ports:
             - 5678:5678
@@ -17,4 +19,11 @@ services:
         #     - N8N_PROTOCOL=${N8N_PROTOCOL}
         #     - WEBHOOK_URL=${WEBHOOK_URL}
         restart: unless-stopped
+
+
+        networks:
+            - traefik_net
+networks:
+  traefik_net:
+    external: true
 
