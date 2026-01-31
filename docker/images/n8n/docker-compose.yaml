@@ -10,7 +10,7 @@ services:
             - 5678:5678
         image: docker.n8n.io/n8nio/n8n
         env_file:
-            - .env_aliyun
+            - ~/.backup/n8n/.env_aliyun
         # environment:
         #     - HTTP_PROXY=${HTTP_PROXY}
         #     - HTTPS_PROXY=${HTTPS_PROXY}
